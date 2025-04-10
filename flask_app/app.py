@@ -86,7 +86,7 @@ def predict_with_timestamps():
         transformed_comments = vectorizer.transform(preprocessed_comments)
         
         # Make predictions
-        predictions = model.predict(transformed_comments).tolist()  # Convert to list
+        predictions = model.predict(pd.DataFrame(transformed_comments.toarray(), columns=vectorizer.get_feature_names_out()))   # Convert to list
         
         # Convert predictions to strings for consistency
         predictions = [str(pred) for pred in predictions]
