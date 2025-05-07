@@ -87,7 +87,7 @@ def predict_with_timestamps():
         
         # Make predictions
         predictions = model.predict(pd.DataFrame(transformed_comments.toarray(), columns=vectorizer.get_feature_names_out()))   # Convert to list
-        
+
         # Convert predictions to strings for consistency
         predictions = [str(pred) for pred in predictions]
     except Exception as e:
